@@ -7,10 +7,21 @@ import PokemonCard from "./components/PokemonCard";
 function App() {
   return (
     <div>
-      <PokemonCard/>
+      <PokemonCard pokemon={pokemonList[0]} />
     </div>
   );
 }
+
+const pokemonList = [
+  {
+    name: "Dragapult",
+    imgSrc:
+      "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/887.png",
+  },
+  {
+    name: "Mew",
+  },
+];
 
 export default App;
 
