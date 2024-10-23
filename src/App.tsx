@@ -1,13 +1,30 @@
 import "./App.css";
-
-//import MyTitle from "./components/MyTitle";
-
+import { useState } from "react";
 import PokemonCard from "./components/PokemonCard";
 
 function App() {
+  const [pokemonIndex, pokemonIndexCount] = useState(0);
+  
+  const handleClickPlus = () => {
+    {console.log(pokemonList.length)}
+    {console.log(pokemonIndex)}
+    if (pokemonIndex < pokemonList.length-1) {
+      pokemonIndexCount(pokemonIndex+1)
+
+    }
+  }
+
+  const handleClickMinus = () => {
+    if (pokemonIndex > 0) {
+      pokemonIndexCount(pokemonIndex-1)
+    }
+  }
+
   return (
     <div>
-      <PokemonCard pokemon={pokemonList[0]} />
+      <PokemonCard pokemon={pokemonList[pokemonIndex]} />
+      <button onClick={handleClickMinus}>Précédent</button>
+      <button onClick={handleClickPlus}>Suivant</button>
     </div>
   );
 }
@@ -19,7 +36,27 @@ const pokemonList = [
       "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/887.png",
   },
   {
-    name: "Mew",
+    name: "bulbasaur",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    name: "charmander",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+  },
+  {
+    name: "squirtle",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+  },
+  {
+    name: "pikachu",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+  },
+  {
+    name: "mew",
   },
 ];
 
