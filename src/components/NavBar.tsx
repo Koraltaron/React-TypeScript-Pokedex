@@ -19,7 +19,12 @@ function NavBar({ pokemonIndexCount, pokemonList}:NavBarProps) {
         <ul>
           {pokemonList.map((pokemon, i) => (
             <li key={pokemon.name}>
-              <button onClick={() => pokemonIndexCount(i)}>{pokemon.name}</button>
+              <button onClick={() => { // way to display pikachu before sending the alert ?
+                if (pokemon.name === "pikachu") {
+                  alert("Pika Pikachu");
+                } pokemonIndexCount(i)}}>
+                {pokemon.name}
+              </button>
             </li>
           ))}
         </ul>
