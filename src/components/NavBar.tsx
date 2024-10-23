@@ -1,38 +1,29 @@
+import "../style/NavBar.css"
+
 interface Pokemon {
   name: string;
   imgSrc?: string;
 }
 
 interface NavBarProps {
-  pokemonIndex: number;
+  pokemonIndex?: number;
   pokemonIndexCount: (index: number) => void;
   pokemonList: Pokemon[];
 }
 
 
-function NavBar({pokemonIndex, pokemonIndexCount, pokemonList}:NavBarProps) {
-  
-  
-
-  const handleClickPlus = () => {
-    {console.log(pokemonList.length)}
-    {console.log(pokemonIndex)}
-    if (pokemonIndex < pokemonList.length-1) {
-      pokemonIndexCount(pokemonIndex+1)
-
-    }
-  }
-
-  const handleClickMinus = () => {
-    if (pokemonIndex > 0) {
-      pokemonIndexCount(pokemonIndex-1)
-    }
-  }
-
+function NavBar({ pokemonIndexCount, pokemonList}:NavBarProps) {
   return (
     <>
-    <button onClick={handleClickMinus}>Précédent</button>
-    <button onClick={handleClickPlus}>Suivant</button>
+      <section>
+        <ul>
+          {pokemonList.map((pokemon, i) => (
+            <li key={pokemon.name}>
+              <button onClick={() => pokemonIndexCount(i)}>{pokemon.name}</button>
+            </li>
+          ))}
+        </ul>
+      </section>
     </> 
   )
 }
